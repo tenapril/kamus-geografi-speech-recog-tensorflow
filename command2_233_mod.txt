@@ -1,0 +1,77 @@
+make model:
+python  tensorflow-master/tensorflow/examples/speech_commands/freeze.py \ --start_checkpoint=/tmp/speech_commands_train/conv.ckpt-18000 \ --output_file=/tmp/my_frozen_graph.pb
+
+
+python  tensorflow-master/tensorflow/examples/speech_commands/train.py \ --train_dir=/skripsi/speech_commands_train \ --data_url= \ --wanted_words=alloy,argon,aspal,atlas,banjir,bank,basin,benua,bigbang,bise,blackhole,bumi,dam,danau,debris,debu,delta,embun,era,es,fauna,fosil,front,fungi,geyser,granit,gua,gunung,gurun,horst,humus,jurang,kabut,kanal,kawah,knot,komet,kompas,lahar,lalang,laut,magma,magnet,menhir,orbit,palung,pulau,semen,tanjung,teluk
+
+
+
+python  tensorflow-master/tensorflow/examples/speech_commands/freeze.py \ --start_checkpoint=/skripsi/speech_commands_train/conv.ckpt-18000 \ --output_file=/skripsi/my_frozen_graph.pb \ --wanted_words=alloy,argon,aspal,atlas,banjir,bank,basin,benua,bigbang,bise,blackhole,bumi,dam,danau,debris,debu,delta,embun,era,es,fauna,fosil,front,fungi,geyser,granit,gua,gunung,gurun,horst,humus,jurang,kabut,kanal,kawah,knot,komet,kompas,lahar,lalang,laut,magma,magnet,menhir,orbit,palung,pulau,semen,tanjung,teluk
+
+
+
+--start_checkpoint=/skripsi/speech_commands_train/conv.ckpt-18000 \ --output_file=/skripsi/my_frozen_graph.pb \
+
+test model:
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=/tmp/speech_dataset/left/a5d485dc_nohash_0.wav
+
+
+
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=/tmp/speech_dataset/right/0a9f9af7_nohash_0.wav
+
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=/tmp/speech_dataset/on/0ac15fe9_nohash_0.wav
+
+C:\>python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=testdata\left\yudha.wav
+
+
+go to C:
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=testdata\left\andrew_test.wav
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=testdata\right\andrew_test.wav
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=testdata\coba.wav
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=testdata\stop\davy_nohash_0.wav
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=testdata\unknown.wav
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=argon\davy_nohash_0.wav
+
+python tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/tmp/my_frozen_graph.pb \ --labels=/tmp/speech_commands_train/conv_labels.txt \ --wav=argon\davy_nohash_2.wav
+
+
+SKRIPSI:
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_aspal.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_atlas.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_banjir.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_bank.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_basin.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_benua.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=/testdata/andrew_bigbang.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/mod_label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=tensorflow-master/tensorflow/examples/speech_commands/file.wav
+
+python mod_label_wav.py --graph=/my_frozen_graph.pb --labels=/conv_labels.txt --wav=./file.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/mod_label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=tensorflow-master/tensorflow/examples/speech_commands/file.wav
+
+python  tensorflow-master-233/tensorflow/examples/speech_commands/mod_label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=tensorflow-master-233/tensorflow/examples/speech_commands/file.wav
+
+python  tensorflow-master-233/tensorflow/examples/speech_commands/mod_label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=tensorflow-master-233/tensorflow/examples/speech_commands/file.wav
+
+python  tensorflow-master-233/tensorflow/examples/speech_commands/mod_label_wav2.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=tensorflow-master-233/tensorflow/examples/speech_commands/file.wav
+
+python  tensorflow-master/tensorflow/examples/speech_commands/label_wav.py \ --graph=/skripsi/my_frozen_graph.pb \ --labels=/skripsi/speech_commands_train/conv_labels.txt \ --wav=testdata/file.wav
+

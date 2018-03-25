@@ -1,0 +1,1 @@
+python  mod_label_wav2.py \ --graph=my_frozen_graph.pb \ --labels=conv_labels.txt \ --wav=file.wav
