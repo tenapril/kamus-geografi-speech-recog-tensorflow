@@ -184,13 +184,13 @@ def save_speech(labels, graph, input_name, output_name, how_many_labels,data, p)
     # filename = 'output_'+str(int(time.time()))
     # writes data to WAV file
     data = b"".join(data)
-    wf = wave.open('tensorflow-master-233/tensorflow/examples/speech_commands/file.wav', 'wb')
+    wf = wave.open('file.wav', 'wb')
     wf.setnchannels(1)
     wf.setsampwidth(p.get_sample_size(pyaudio.paInt16))
     wf.setframerate(16000)  # TODO make this value a function parameter?
     wf.writeframes(data)
     wf.close()
-    with open('tensorflow-master-233/tensorflow/examples/speech_commands/file.wav', 'rb') as wav_file:
+    with open('file.wav', 'rb') as wav_file:
         wav_data = wav_file.read()
     run_graph(wav_data, labels_list, input_name, output_name, how_many_labels)
     return 'file.wav'
