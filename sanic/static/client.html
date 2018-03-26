@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="item in stream">
+        {{item}}
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://localhost:5000');
+
+      socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+      });
+      socket.on('disconnect', function() {
+        socket.emit('my event', {data: 'I\'m disconnected!'});
+      });
+      socket.on('datastream', function(datastream) {
+        console.log(datastream)
+        app.stream = datastream
+      });
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          stream: {}
+        },
+        computed: {
+          // sortedStream() {
+          //   stream.sort(function(a,b) {
+          //     if(a)
+          //   })
+          // }
+        }
+      })
+    </script>
+  </body>
+</html>
