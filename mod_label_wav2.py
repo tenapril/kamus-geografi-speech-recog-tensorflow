@@ -41,6 +41,9 @@ import math
 import tensorflow as tf
 import pyaudio
 import wave
+import requests
+import json
+
 # pylint: disable=unused-import
 from tensorflow.contrib.framework.python.ops import audio_ops as contrib_audio
 # pylint: enable=unused-import
@@ -96,10 +99,16 @@ def run_graph(wav_data, labels, input_layer_name, output_layer_name,
 
     # Sort to show labels in order of confidence
     top_k = predictions.argsort()[-num_top_predictions:][::-1]
+    result = []
     for node_id in top_k:
       human_string = labels[node_id]
       score = predictions[node_id]
+      result.append({'class': human_string, 'value': str(score)})
+      # print(result)
+      # print(json.dumps({'class':human_string, 'value':string(score)}))
       print('%s (score = %.5f)' % (human_string, score))
+    print(json.dumps(result))
+    requests.post('http://localhost:5000/stream', json=result)
 
     return 0
 
